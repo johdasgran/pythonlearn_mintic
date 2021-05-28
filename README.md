@@ -1,2 +1,2 @@
-# pythonlearn_mintic
+# pythonlearn-mintic
 Learning python 🐍
