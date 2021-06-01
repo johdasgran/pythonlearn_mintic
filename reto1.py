@@ -4,6 +4,7 @@
 # os: permite ejecutar comandos de consola (Linux / Windows / Mac)
 import platform
 import os
+# TODO: clean comments//
 
 ## RF01 - El programa dispone de un mensaje de bienvenida al sistema
 ##        previo a la solicitud de las credenciales de acceso.
@@ -44,8 +45,7 @@ else:
             if sistema == "Linux" or sistema == "Darwin":
                 os.system('clear')
             elif sistema == "Windows":
-                os.system('cls')
-
+                os.system('cls')    
             print ("Sesión iniciada")
         else: 
            print ("Error") 
