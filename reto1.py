@@ -30,6 +30,7 @@ else:
         #            éxito en el inicio de sesión.
         if Captcha_Final == Capcha_Validate:
             print ("Sesión iniciada")
+            # import reto2
         else: 
            print ("Error") 
     else:

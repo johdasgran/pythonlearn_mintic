@@ -29,7 +29,7 @@ while count < 3:
     # RF02: 51625
     # El usuario ingresa al sistema el número 6 del menú de opciones.
 
-    option = int(input("Elija una opción:"))
+    option = int(input("Elija una opción: "))
 
     
 
@@ -59,7 +59,7 @@ while count < 3:
     elif(option==6): 
 
         # count=3
-        favorite = int(input("Seleccione opción favorita:"))
+        favorite = int(input("Seleccione opción favorita: "))
 
         if(favorite==1 or favorite==2 or favorite==3 or favorite==4 or favorite==5):
             validate1= int(input("Soy más de uno sin llegar a tres y llego a cuatro cuando dos me des. ¿Cuál número soy? "))
@@ -103,44 +103,44 @@ while count < 3:
                 
                     # Elja una opcion RF02
                     # Aqui seria el posible import del reto 3
-                    option0 = int(input("Elija una opción:"))
+                    option = int(input("Elija una opción: "))
 
                     # elif(favorite==7):
                     #     count=3
                     #     print("Hasta pronto")
                     
-                    if(option0==1 or option0==2 or option0==3 or option0==4 or option0==5):
+                    if(option==1 or option==2 or option==3 or option==4 or option==5):
 
                         
-                        if(option0==1):                            
+                        if(option==1):                            
                             print("Usted ha elegido la opción 1")
-                        elif(option0==2):                          
+                        elif(option==2):                          
                             print("Usted ha elegido la opción 2")
-                        elif(option0==3):                          
+                        elif(option==3):                          
                             print("Usted ha elegido la opción 3")
-                        elif(option0==4):                          
+                        elif(option==4):                          
                             print("Usted ha elegido la opción 4")
-                        elif(option0==5):        
+                        elif(option==5):        
                             print("Usted ha elegido la opción 5")
                                     
-                    elif(option0==7):
-                        count=+3
+                    elif(option==7):
+                        count+=3
                         print("Hasta pronto")
 
-                    count=+3
+                    count+=3
 
                 else:
                     print("Error")
             else:
                 print("Error")
         else:
-            count=+3
+            count+=3
             print("Error")
 
     # opcion 7 del menu
 
     elif(option==7):
-        count=3
+        count+=3
         print("Hasta pronto")
 
     # opciones distintas a la 1, 2, 3, 4, 5, 6, 7
