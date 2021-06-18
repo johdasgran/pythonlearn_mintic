@@ -1,10 +1,11 @@
 ## Actividad Reto de la semana: Elabora un programa de inicio de sesión con validación de captcha de seguridad. (Reto 1)
 
-# platform: detecta el os desde el que se ejecuta el .py
-# os: permite ejecutar comandos de consola (Linux / Windows / Mac)
-import platform
 import os
-# TODO: clean comments//
+
+# Funcion para limpiar pantalla en (Linux / Windows / Mac)
+clearConsole = lambda: os.system('cls' if os.name in ('nt', 'dos') else 'clear')
+
+# TODO: clean comments// (Linux / Windows / Mac)
 
 ## RF01 - El programa dispone de un mensaje de bienvenida al sistema
 ##        previo a la solicitud de las credenciales de acceso.
@@ -36,17 +37,11 @@ else:
         #            éxito en el inicio de sesión.
         if Captcha_Final == Capcha_Validate:
 
-            ## Clear screent
-            #8 sistema: variable que guarda el nombre del sistema operativo como un string 
-            sistema = platform.system()
-            # Show the os
-            # print("Estamos en {}".format(sistema))
-
-            if sistema == "Linux" or sistema == "Darwin":
-                os.system('clear')
-            elif sistema == "Windows":
-                os.system('cls')    
+            clearConsole()
             print ("Sesión iniciada")
+
+            # Import Reto 2 
+            
         else: 
            print ("Error") 
     else:
