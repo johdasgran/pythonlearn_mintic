@@ -1,5 +1,12 @@
 ## Actividad Reto de la semana: Elabora un programa de inicio de sesión con validación de captcha de seguridad. (Reto 1)
 
+import os
+
+# Funcion para limpiar pantalla en (Linux / Windows / Mac)
+clearConsole = lambda: os.system('cls' if os.name in ('nt', 'dos') else 'clear')
+
+# TODO: clean comments// (Linux / Windows / Mac)
+
 ## RF01 - El programa dispone de un mensaje de bienvenida al sistema
 ##        previo a la solicitud de las credenciales de acceso.
 
@@ -25,10 +32,12 @@ else:
         Captcha_Math = (6*2)-5-5
         Captcha_Final = (Captcha + Captcha_Math)
         Capcha_Validate = int(input("Complete la suma 625 + 2: "))
-        
+
         # RF04: - : El programa confirma el ingreso al sistema con un mensaje de
         #            éxito en el inicio de sesión.
         if Captcha_Final == Capcha_Validate:
+
+            clearConsole()
             print ("Sesión iniciada")
             # import reto2
         else: 
