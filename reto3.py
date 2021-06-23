@@ -51,7 +51,7 @@ else:
             c=0
             # listPassword=[]
             # validateListPassword=[]
-            for count in range(0, 8):
+            for count in range(0, 3):
 
                 option1=("1. Cambiar contraseña.\n")
                 option2=("2. Ingresar coordenadas actuales.\n")
@@ -82,43 +82,64 @@ else:
                             listPassword.append(passUser)
                         else:
                             listPassword.append(newPass)
+
                         validatePass= int(input("Ingrese la contraseña actual: "))
                         validateListPassword.append(validatePass)
+                        
+                        # Valida que la contraseña sea correcta para pruebas xd
+                        # if(validateListPassword==listPassword):
+                        #     print("true")
+                        # else:
+                        #     print("false")
 
-                        if(validateListPassword==listPassword):
-                            print("true")
-                        else:
-                            print("false")
-
-                        print(validateListPassword)
-                        print(listPassword)
-                        # print(listPassword[c])
                         ## contador de nuevas contraseñas
-                        print(c)
+                        # print(c)
                         for x in range(0,1):
                             if(validateListPassword==listPassword):
                                 c+=1
                                 
                                 newPass=int(input("Nueva contraseña del usuario: "))
                                 listPassword.append(newPass)
+                                
+                                if(validateListPassword[0]==listPassword[1]):
+                                    # Valida en la lista que la contraseña actual y la ingresada sean la misma y devuelve el error
+                                    print("Error, no se puede cambiar la contraseña por la misma anterior.")
+                                    # Elimina las contraseñas ingresadas por el usuario a las listas, 
+                                    # no es necesario borrarlas ya que finaliza el programa si son las mismas.. Pero si queremos
+                                    # que en case de que sea la misma le de mas intentos es necesario borrar las listas anteriores y 
+                                    # poner a (c=0) para que se reinicie el contador.
+                                    # c=0
+                                    # listPassword.pop(1)
+                                    # validateListPassword.pop(0)
+                                    # print(validateListPassword)
+                                    # print(listPassword)
+                                    quit()
+
+
+
                                 if(c==1):
+                                    # Me borra de las dos listas el valor (52615) de las contraseñas anteiores en 
+                                    # caso de que se ejecute correctamente la nueva contrasseña, así evitamos que 
+                                    # marque error al volverse a ejecutar el for y valide las listas
                                     listPassword.remove(52615)
                                     validateListPassword.remove(52615)
-                                 
-                            
-                                print(validateListPassword)
-                                print(listPassword)
-                                # password=newPass
-                                # print(newPass)
-                                # print(Password)  
-                                break                          
-                            elif(validateListPassword!=listPassword):
-                                print(validateListPassword)
-                                print(listPassword)
-                                # validateListPassword.pop()
-                                # La nueva contraseña no puede ser igual a la contraseña actual
-                                print("Errorxx")
-                                break
+
+                                # Imprime las listas para ver que esta guardando en las dos listas en estos 
+                                # momentos en casa ejecucion del for.
+                                # print(validateListPassword)
+                                # print(listPassword)
+                       
+
+                            else:
+                                # En caso de que tengan que ejeuctar varias veces el for, así el usuario 
+                                # se haya equivacado al escribir la contraseña, deben borrar el indice (0) del validador de lista//
+                                # validateListPassword.pop(0)
+                                # Si la actual contraseña no coinciden con la ingresada por el usuario
+                                # marca Error y finaliza la ejecucion.
+                                print("Error, la contraseña no coincide con la actual")
+                                quit()
+                  
+                                
                       
 
                     elif(option==2):
