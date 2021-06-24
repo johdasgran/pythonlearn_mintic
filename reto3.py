@@ -17,6 +17,9 @@ print ("*** Bienvenido al sistema de ubicación para zonas públicas WIFI ***")
 # Password = 52615
 User_Name = int(input("Ingrese usuario: "))
 
+      
+
+
 if User_Name != 51625:
     print ("Error")
 else:
@@ -49,6 +52,8 @@ else:
 
             count=0
             c=0
+            confirmacion=0
+            listasllenas=0
             # listPassword=[]
             # validateListPassword=[]
             while (count<3):
@@ -74,7 +79,7 @@ else:
                 if(option==1 or option==2 or option==3 or option==4 or option==5):
 
                     if(option==1):
-                        print("Usted ha elegido la opción 1")
+                        # print("Usted ha elegido la opción 1")
                         # Password = 52615
                         #RF01 Reto 3
                         listPassword=[]
@@ -145,107 +150,36 @@ else:
 
                     elif(option==2):
 
-                        print("Usted ha elegido la opción 2")
+                        # print("Usted ha elegido la opción 2")
                         # RF02: El programa permite al usuario ingresar las coordenadas de los tres sitios 
                         # que más frecuenta (trabajo, casa, parque).
+                        # if('sitios' in globals()):
+                        #     print("Error actualización, las coordenas ya estan definidas")
+                        # else:
 
-                        trabajo=[]
-                        casa=[]
-                        parque=[]
-
+                        
+                        
+                        
+                        
+                        
                         # La validación de las coordenadas ingresadas se hará a partir de la siguiente tabla.
                         # Digito del grupo (5) - Municipio La Paz, Cesar - 
                         # Latitud Sup: 10.462 Inf: 9.757 - Longitud Or: -76.493 Occ: -73.623
 
                         # Ingresar latitud y longitud del trabajo y validar con las restriciones de coordenadas
                         # try valida si se puede ejecutar, except en caso de que el flotante contenga espacios
-                        try:
-                            latitud_trabajo=float(input("Ingrese la latitud  del trabajo: "))
-                            trabajo.append(latitud_trabajo)
-                            if (latitud_trabajo<9.757 or latitud_trabajo>10.462):
-                                print("Error coordenada")
-                                break
-                            longitud_trabajo=float(input("Ingrese la longitud del trabajo: "))
-                            trabajo.append(longitud_trabajo)
-                            if(longitud_trabajo>(-73.623) or longitud_trabajo<(-76.493)):
-                                print("Error coordenada")
-                                break
-
-                            # Ingresar latitud y longitud de casa y validar con las restriciones de coordenadas
-                            latitud_casa=float(input("Ingrese la latitud  del casa: "))
-                            casa.append(latitud_casa)
-                            if(latitud_casa<9.757 or latitud_casa>10.462):
-                                print("Error coordenada")
-                                break
-                            longitud_casa=float(input("Ingrese la longitud del casa: "))
-                            casa.append(longitud_casa)
-                            if(longitud_casa>(-73.623) or longitud_casa<(-76.493)):
-                                print("Error coordenada")
-                                break
-
-                            # Ingresar latitud y longitud del parque y validar con las restriciones de coordenadas
-                            latitud_parque=float(input("Ingrese la latitud  del parque: "))
-                            parque.append(latitud_parque)
-                            if(latitud_parque<9.757 or latitud_parque>10.462):
-                                print("Error coordenada")
-                                break
-                            longitud_parque=float(input("Ingrese la longitud del parque: "))
-                            parque.append(longitud_parque)
-                            if(longitud_parque>(-73.623) or longitud_parque<(-76.493)):
-                                print("Error coordenada")
-                                break
-
-                        except:
-                            # Si al ingresar algun datos a la matriz esta vacio finaliza programa con Error
-                            print("Error")
-                            break
+                        # valor=(2,4)[5>3]
+                        # print(f"Resultado: {valor}")
+                        # while(confirmacion!=1):
+                        if(confirmacion!=1):
+                            for a in range(0, 1):
 
 
-                        sitios=[trabajo, casa, parque]
-
-                        # print(sitios)
-
-
-
-
-                    elif(option==3):
-                        print("Usted ha elegido la opción 3")
-                        break
-                    elif(option==4):
-                        print("Usted ha elegido la opción 4")
-                        break
-                
-                    elif(option==5):
-
-
-
-
-                        #RF03 Reto 3
-                        # globals() busca si la variable 'sitios' existe o no, la existencia depende 
-                        # de si se ha ejecutado antes la opcion 2.
-                        if('sitios' in globals()):
-                            # print("esta defninda o existe?")
-                            print("1. Coordenada trabajo [latitud, longitud] :", trabajo)
-                            print("2. Coordenada casa [latitud, longitud] :", casa)
-                            print("3. Coordenada parque [latitud, longitud] :" ,parque)
-                            print("La coordenada 1 ubicada más al sur")
-                            print("La coordenada 2 ubicada más al oriente")
-                            # sitios=[trabajo, casa, parque]
-
-                            press=int(input("Presione 1, 2 o 3 para actualizar la respectiva coordenada\no presione 0 para salir: "))
-
-                            ## Dejamos que pueda actualizar la matriz de coordenadas de forma correcta hasta 100 intentos.
-                            ## Si se equivoca en uno de los intentos finaliza ejecucion.
-                            
-
-                            try:
-                            
-                                if(press==1):
-
-                                    # Borrar datos anteriores y ingresar los nuevos actualizados
-                                    trabajo.pop(0)
-                                    trabajo.pop(0)
-                                    # Ingresar latitud y longitud de casa y validar con las restriciones de coordenadas
+                                trabajo=[]
+                                casa=[]
+                                parque=[]
+                                                    
+                                try:
                                     latitud_trabajo=float(input("Ingrese la latitud  del trabajo: "))
                                     trabajo.append(latitud_trabajo)
                                     if (latitud_trabajo<9.757 or latitud_trabajo>10.462):
@@ -256,13 +190,6 @@ else:
                                     if(longitud_trabajo>(-73.623) or longitud_trabajo<(-76.493)):
                                         print("Error coordenada")
                                         break
-                                    
-
-                                elif(press==2):
-
-                                    # Borrar datos anteriores y ingresar los nuevos actualizados
-                                    casa.pop(0)
-                                    casa.pop(0)
 
                                     # Ingresar latitud y longitud de casa y validar con las restriciones de coordenadas
                                     latitud_casa=float(input("Ingrese la latitud  del casa: "))
@@ -275,13 +202,6 @@ else:
                                     if(longitud_casa>(-73.623) or longitud_casa<(-76.493)):
                                         print("Error coordenada")
                                         break
-                                
-
-                                elif(press==3):
-
-                                    # Borrar datos anteriores y ingresar los nuevos actualizados
-                                    parque.pop(0)
-                                    parque.pop(0)
 
                                     # Ingresar latitud y longitud del parque y validar con las restriciones de coordenadas
                                     latitud_parque=float(input("Ingrese la latitud  del parque: "))
@@ -294,30 +214,150 @@ else:
                                     if(longitud_parque>(-73.623) or longitud_parque<(-76.493)):
                                         print("Error coordenada")
                                         break
-                                
-                                
-                                elif(press==0):
+                                    
+                                 
+                                    confirmacion+=1
+                                    sitios=[trabajo, casa, parque]
                                     break
 
-                                else:
-                                    print("Error actualización.")
-                                    quit()
+                                except:
+                                    # Si al ingresar algun datos a la matriz esta vacio finaliza programa con Error
+                                    print("Error")
+                                    # finalizarPrograma()
+                                    break
+                            
 
-                                # sitios sera igual a las nuevas coordenadas actualizadas 
-                                sitios=[trabajo, casa, parque]
+                                # sitios=[trabajo, casa, parque]
                                 # print(sitios)
-
-
-                            except:
-                                # Si al ingresar algun datos a la matriz esta vacio finaliza programa con Error
-                                print("Error")
-                                break
-
-
+                           
+                    
                         else:
-                            print("Debes ingresar primero las coordenadas en la opcion 2")
-                            break
+                        
+                            #RF03 Reto 3
+                            # globals() busca si la variable 'sitios' existe o no, la existencia depende 
+                            # de si se ha ejecutado antes la opcion 2.
+                            if('sitios' in globals()):
+                                # print("esta defninda o existe?")
+                                print("1. Coordenada trabajo [latitud, longitud] :", trabajo)
+                                print("2. Coordenada casa [latitud, longitud] :", casa)
+                                print("3. Coordenada parque [latitud, longitud] :" ,parque)
+                                print("La coordenada 1 ubicada más al sur")
+                                print("La coordenada 2 ubicada más al oriente")
+                                # sitios=[trabajo, casa, parque]
 
+                                press=int(input("Presione 1, 2 o 3 para actualizar la respectiva coordenada\no presione 0 para salir: "))
+
+                                ## Dejamos que pueda actualizar la matriz de coordenadas de forma correcta hasta 100 intentos.
+                                ## Si se equivoca en uno de los intentos finaliza ejecucion.
+                                
+
+                                try:
+                                
+                                    if(press==1):
+
+                                        # Borrar datos anteriores y ingresar los nuevos actualizados
+                                        trabajo.pop(0)
+                                        trabajo.pop(0)
+                                        # Ingresar latitud y longitud de casa y validar con las restriciones de coordenadas
+                                        latitud_trabajo=float(input("Ingrese la latitud  del trabajo: "))
+                                
+                                        trabajo.append(latitud_trabajo)
+                                        if (latitud_trabajo<9.757 or latitud_trabajo>10.462):
+                                            print("Error actualización")
+                                            break
+                                        longitud_trabajo=float(input("Ingrese la longitud del trabajo: "))
+                                    
+                                        trabajo.append(longitud_trabajo)
+                                        if(longitud_trabajo>(-73.623) or longitud_trabajo<(-76.493)):
+                                            print("Error actualización")
+                                            break
+                                        
+
+                                    elif(press==2):
+
+                                        # Borrar datos anteriores y ingresar los nuevos actualizados
+                                        casa.pop(0)
+                                        casa.pop(0)
+
+                                        # Ingresar latitud y longitud de casa y validar con las restriciones de coordenadas
+                                        latitud_casa=float(input("Ingrese la latitud  del casa: "))
+                                
+                                        casa.append(latitud_casa)
+                                        if(latitud_casa<9.757 or latitud_casa>10.462):
+                                            print("Error actualización")
+                                            break
+                                        longitud_casa=float(input("Ingrese la longitud del casa: "))
+                                
+                                        casa.append(longitud_casa)
+                                        if(longitud_casa>(-73.623) or longitud_casa<(-76.493)):
+                                            print("Error actualización")
+                                            break
+                                    
+
+                                    elif(press==3):
+
+                                        # Borrar datos anteriores y ingresar los nuevos actualizados
+                                        parque.pop(0)
+                                        parque.pop(0)
+
+                                        # Ingresar latitud y longitud del parque y validar con las restriciones de coordenadas
+                                        latitud_parque=float(input("Ingrese la latitud  del parque: "))
+                            
+                                        parque.append(latitud_parque)
+                                        if(latitud_parque<9.757 or latitud_parque>10.462):
+                                            print("Error actualización")
+                                            break
+                                        longitud_parque=float(input("Ingrese la longitud del parque: "))
+                                
+                                        parque.append(longitud_parque)
+                                        if(longitud_parque>(-73.623) or longitud_parque<(-76.493)):
+                                            print("Error actualización")
+                                            break
+                                    
+                                    
+                                    elif(press==0):
+                                        # break
+                                        C=0
+
+                                    else:
+                                        print("Error actualización.")
+                                        quit()
+
+                                    # sitios sera igual a las nuevas coordenadas actualizadas 
+                                    sitios=[trabajo, casa, parque]
+                                    # print(sitios)
+
+
+                                except:
+                                    # Si al ingresar algun datos a la matriz esta vacio finaliza programa con Error
+                                    print("Error")
+                                    break
+
+
+                        # else:
+                        #     print("Debes ingresar primero las coordenadas en la opcion 2")
+                        #     break
+
+
+
+
+
+
+
+                    elif(option==3):
+                        print("Usted ha elegido la opción 3")
+                        break
+                    elif(option==4):
+                        print("Usted ha elegido la opción 4")
+                        break
+                
+                    elif(option==5):
+                        print("Usted ha elegido la opción 5")
+                        break
+
+
+
+                        
 
 
                         # print("Usted ha elegido la opción 5")
