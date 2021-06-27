@@ -185,7 +185,7 @@ def menu_reto2():
 
 
 
-## RETO 3
+## Actividad Reto de la semana: Elabora un programa que actualice la información de datos a través del manejo de matrices y funciones. (Reto 3)
 
 list_password=[]
 validate_list_password=[]
@@ -194,7 +194,7 @@ def option1_reto3():
 
     global c
     global list_password
-    global validateList_password
+    global validate_list_password
     global new_pass
     global pass_user
 
@@ -266,8 +266,7 @@ def option1_reto3():
         quit()
                   
                                 
-confirmacion=0
-listasllenas=0  
+confirmacion=0 
 trabajo=[]
 casa=[]
 parque=[]
@@ -277,7 +276,6 @@ sitios=[]
 def option2_reto3():
 
     global confirmacion
-    global listasllenas
     global trabajo
     global casa
     global parque
