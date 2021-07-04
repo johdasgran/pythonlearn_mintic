@@ -813,17 +813,6 @@ def option5_reto5():
 
 
 
-
-
-
-
-
-
-
-
-
-
-
 # Init retos //
 
 login_reto1()
