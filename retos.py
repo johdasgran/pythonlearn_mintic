@@ -1,6 +1,8 @@
 ## Actividad Reto de la semana: Elabora un programa de inicio de sesión con validación de captcha de seguridad. (Reto 1)
 
 import os
+import math
+from operator import itemgetter
 
 # Funcion para limpiar pantalla en (Linux / Windows / Mac)
 clear_console = lambda: os.system('cls' if os.name in ('nt', 'dos') else 'clear')
@@ -17,7 +19,11 @@ def login_reto1():
     ## RF02 - El programa dispone de un usuario y una contraseña predefinidos para el inicio de sesión en consola.
     # User_Name = 51625
     # Password = 52615
-    user_name = int(input("Ingrese usuario: "))
+    try:
+        user_name = int(input("Ingrese usuario: "))
+    except:
+        print("Este fue mi primer programa y vamos por más")
+        quit()
 
     if user_name != 51625:
         print ("Error")
@@ -76,10 +82,15 @@ def menu_reto2():
 
         print("",option1, option2, option3, option4, option5, option6, option7)
 
+
         # RF02: 51625
         # El usuario ingresa al sistema el número 6 del menú de opciones.
 
         option = int(input("Elija una opción: "))
+
+        if(option==-1):
+            print("Usted está en hemisferio sur")
+            quit()
 
         # Opciones 1, 2, 3, 4 y 5 del menu
 
@@ -90,7 +101,7 @@ def menu_reto2():
             elif(option==2):
                 option2_reto3()                
             elif(option==3):
-                print("Usted ha elegido la opción 3")
+                option3_reto4()
             elif(option==4):
                 print("Usted ha elegido la opción 4")
             elif(option==5):
@@ -270,7 +281,7 @@ confirmacion=0
 trabajo=[]
 casa=[]
 parque=[]
-sitios=[]                   
+# sitios=[]                   
 
 
 def option2_reto3():
@@ -456,6 +467,227 @@ def option2_reto3():
                     # Si al ingresar algun datos a la matriz esta vacio finaliza programa con Error
                     print("Error")
                     break
+
+
+
+
+
+
+
+
+# RF01: El programa dispone de manera predefinida la ubicación de
+# cuatro zonas wifi con su respectivo promedio de usuarios.
+
+zona_1=[10.127, -74.950, 0]
+zona_2= [10.196, -74.935, 0]
+zona_3= [10.305, -75.040, 2490]
+zona_4=[10.196, -74.935, 101]
+
+zonas_wifi=[]
+
+def distancia_reto4(latitud_1, longitud_1):
+
+    # Funcion que me ayuda a calcular la distancia y el tiempo //
+        
+    global zona_1
+    global zona_2
+    global zona_3
+    global zona_4
+    global trabajo
+    global casa
+    global parque
+    global zonas_wifi_cercanas
+
+    # Radio de la tierra 
+    r = 6372.795477598
+
+    lat1 = math.radians(latitud_1)
+    lon1 = math.radians(longitud_1)
+
+    # zona 1
+    zona1_lat2 = math.radians(zona_1[0])
+    zona1_lon2 = math.radians(zona_1[1])
+    zona1_lat_delta = zona1_lat2-lat1
+    zona1_lon_delta = zona1_lon2-lon1
+
+    ## Formula que calcula la distancia 
+    zona1_seno_lat=(math.sin(zona1_lat_delta/2)**2)
+    zona1_seno_lon=(math.sin(zona1_lon_delta/2)**2)
+    zona1_cos_lat2 = math.cos(zona1_lat2)*zona1_seno_lon
+    zona1_cos_lat1 = math.cos(lat1)*zona1_cos_lat2
+    zona1_asin_raiz = math.asin(math.sqrt(zona1_seno_lat+zona1_cos_lat1))
+    distancia_wifi_zona1=((2*r)*zona1_asin_raiz)*1000
+    zona_1.append(distancia_wifi_zona1)
+
+
+
+    # zona 2
+    zona2_lat2 = math.radians(zona_2[0])
+    zona2_lon2 = math.radians(zona_2[1])
+    zona2_lat_delta = zona2_lat2-lat1
+    zona2_lon_delta = zona2_lon2-lon1
+
+    ## Formula que calcula la distancia 
+    zona2_seno_lat=(math.sin(zona2_lat_delta/2)**2)
+    zona2_seno_lon=(math.sin(zona2_lon_delta/2)**2)
+    zona2_cos_lat2 = math.cos(zona2_lat2)*zona2_seno_lon
+    zona2_cos_lat1 = math.cos(lat1)*zona2_cos_lat2
+    zona2_asin_raiz = math.asin(math.sqrt(zona2_seno_lat+zona2_cos_lat1))
+    distancia_wifi_zona2=((2*r)*zona2_asin_raiz)*1000
+    zona_2.append(distancia_wifi_zona2)
+
+
+
+    # zona 3
+    zona3_lat2 = math.radians(zona_3[0])
+    zona3_lon2 = math.radians(zona_3[1])
+    zona3_lat_delta = zona3_lat2-lat1
+    zona3_lon_delta = zona3_lon2-lon1
+    
+    ## Formula que calcula la distancia 
+    zona3_seno_lat=(math.sin(zona3_lat_delta/2)**2)
+    zona3_seno_lon=(math.sin(zona3_lon_delta/2)**2)
+    zona3_cos_lat2 = math.cos(zona3_lat2)*zona3_seno_lon
+    zona3_cos_lat1 = math.cos(lat1)*zona3_cos_lat2
+    zona3_asin_raiz = math.asin(math.sqrt(zona3_seno_lat+zona3_cos_lat1))
+    distancia_wifi_zona3=((2*r)*zona3_asin_raiz)*1000
+    zona_3.append(distancia_wifi_zona3)
+
+
+
+
+    # zona 4
+    zona4_lat2 = math.radians(zona_4[0])
+    zona4_lon2 = math.radians(zona_4[1])
+    zona4_lat_delta = zona4_lat2-lat1
+    zona4_lon_delta = zona4_lon2-lon1
+
+    ## Formula que calcula la distancia 
+    zona4_seno_lat=(math.sin(zona4_lat_delta/2)**2)
+    zona4_seno_lon=(math.sin(zona4_lon_delta/2)**2)
+    zona4_cos_lat2 = math.cos(zona4_lat2)*zona4_seno_lon
+    zona4_cos_lat1 = math.cos(lat1)*zona4_cos_lat2
+    zona4_asin_raiz = math.asin(math.sqrt(zona4_seno_lat+zona4_cos_lat1))
+    distancia_wifi_zona4=((2*r)*zona4_asin_raiz)*1000
+    zona_4.append(distancia_wifi_zona4)
+
+
+    ## zona_1 = [latitud, longitud, usuarios, distancia]
+    zonas_wifi=[zona_1, zona_2, zona_3, zona_4]
+    zonas_wifi_ordenadas_cercanas=sorted(zonas_wifi ,key=itemgetter(3))
+    zonas_wifi_ordenadas=sorted(zonas_wifi_ordenadas_cercanas ,key=itemgetter(2))
+
+    
+    print("Zonas WiFi cercanas con menos usuarios")
+    print("La zona WiFi 1: Ubicada en",zonas_wifi_ordenadas[0][0],",", zonas_wifi_ordenadas[0][1] , "a", round(zonas_wifi_ordenadas[0][3]), "metros, tiene en promedio",zonas_wifi_ordenadas[0][2],"usuarios")
+    print("La zona WiFi 2: Ubicada en",zonas_wifi_ordenadas[1][0],",", zonas_wifi_ordenadas[1][1] , "a", round(zonas_wifi_ordenadas[1][3]), "metros, tiene en promedio",zonas_wifi_ordenadas[1][2],"usuarios")
+    press_zona= int(input("Elija 1 o 2 para recibir indicaiones de llegada: "))
+
+
+    lat_origen=lat1
+    lon_origen=lon1
+
+    # -Tiempo en moto
+    # -Tiempo a pie
+    ## Funcion para calcular indicaciones de llegada al destino y el tiempo en minutos
+
+    def indicaciones_llegada_reto4(lat_destino, lon_destino):
+
+        # Tiempo = Distancia zona wifi / velocidad promedio
+        # Velocidad prom. moto: 19,44 m/s
+        # Velocidad prom. a pie: 0,483m/s
+
+        tiempo_moto=round(((distancia_destino/19.44)/60))
+        tiempo_pie=round(((distancia_destino/0.483)/60))
+
+
+        if(lat_origen>lat_destino and lon_origen<lon_destino):
+            print("Para llegar a la zona wifi dirigirse primero al sur y luego hacia el oriente\ny el tiempo que tardaria en moto es:",tiempo_moto,"minutos y a pie:",tiempo_pie,"minutos")
+        elif(lat_origen<lat_destino and lon_origen>lon_destino):
+            print("Para llegar a la zona wifi dirigirse primero al norte y luego hacia el occidente\ny el tiempo que tardaria en moto es:",tiempo_moto,"minutos y a pie:",tiempo_pie,"minutos")
+        elif(lat_origen<lat_destino and lon_origen<lon_destino):
+            print("Para llegar a la zona wifi dirigirse primero al norte y luego hacia el oriente\ny el tiempo que tardaria en moto es:",tiempo_moto,"minutos y a pie:",tiempo_pie,"minutos")
+        elif(lat_origen>lat_destino and lon_origen>lon_destino):
+            print("Para llegar a la zona wifi dirigirse primero al sur y luego hacia el occidente\ny el tiempo que tardaria en moto es:",tiempo_moto,"minutos y a pie:",tiempo_pie,"minutos")
+    
+
+    if(press_zona==1):
+        lat_destino=zonas_wifi_ordenadas[0][0]
+        lon_destino=zonas_wifi_ordenadas[0][1]
+        distancia_destino=zonas_wifi_ordenadas[0][3]
+        indicaciones_llegada_reto4(lat_destino, lon_destino)
+
+    elif(press_zona==2):
+        lat_destino=zonas_wifi_ordenadas[1][0]
+        lon_destino=zonas_wifi_ordenadas[1][1]
+        distancia_destino=zonas_wifi_ordenadas[0][3]
+        indicaciones_llegada_reto4(lat_destino, lon_destino)
+        
+    else:
+        print("Error zona wifi")
+
+
+    ## Volver al menu despues de mostrar las indicaciones y tiempo de llegada
+    salir=int(input("Presione 0 para salir: "))
+    if(salir==0):
+        menu_reto2()
+
+
+    # return zonas_wifi_ordenadas
+
+
+
+def option3_reto4():
+
+    if('sitios' in globals()):
+        # print("imprimir zona mas cercana")
+        print("1. Coordenada trabajo [latitud, longitud] :", trabajo)
+        print("2. Coordenada casa [latitud, longitud] :", casa)
+        print("3. Coordenada parque [latitud, longitud] :" ,parque)
+        # sitios=[trabajo, casa, parque]
+
+        press_ubi=int(input("Porfavor elija su ubicacion actual 1, 2 o 3 para calcular\nla distancia a los puntos de conexión: "))
+
+        if(press_ubi==1):
+            distancia_reto4(trabajo[0],trabajo[1])
+        elif(press_ubi==2):
+            distancia_reto4(casa[0],casa[1])
+        elif(press_ubi==3):
+            distancia_reto4(parque[0],parque[1])
+        else:
+            print("Error ubicación") 
+            quit()                           
+
+
+
+    else:
+        print("Error sin registro de coordenadas")
+        quit()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
