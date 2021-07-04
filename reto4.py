@@ -464,7 +464,59 @@ else:
                             print("Zonas WiFi cercanas con menos usuarios")
                             print("La zona WiFi 1: Ubicada en",zonas_wifi_ordenadas[0][0],",", zonas_wifi_ordenadas[0][1] , "a", round(zonas_wifi_ordenadas[0][3]), "metros, tiene en prmedio ",zonas_wifi_ordenadas[0][2]," usuarios")
                             print("La zona WiFi 2: Ubicada en",zonas_wifi_ordenadas[1][0],",", zonas_wifi_ordenadas[1][1] , "a", round(zonas_wifi_ordenadas[1][3]), "metros, tiene en prmedio ",zonas_wifi_ordenadas[1][2]," usuarios")
-                            print("Elija 1 o 2 para recibir indicaiones de llegada: ")
+                            press_zona= int(input("Elija 1 o 2 para recibir indicaiones de llegada: "))
+
+
+                            lat_origen=lat1
+                            lon_origen=lon1
+
+                            # -Tiempo en moto
+                            # -Tiempo a pie
+
+
+                            def indicaciones_llegada(lat_destino, lon_destino):
+
+                                # Tiempo = Distancia zona wifi / velocidad promedio
+                                # Velocidad prom. moto: 19,44 m/s
+                                # Velocidad prom. a pie: 0,483m/s
+
+                                tiempo_moto=((distancia_destino/19.44)/60)
+                                tiempo_pie=((distancia_destino/0.483)/60)
+        
+
+
+                                if(lat_origen>lat_destino and lon_origen<lon_destino):
+                                    print("Para llegar a la zona wifi dirigirse primero al sur y luego hacia el oriente\ny el tiempo que tardaria en moto es:",tiempo_moto,"minutos y a pie:",tiempo_pie,"minutos")
+                                elif(lat_origen<lat_destino and lon_origen>lon_destino):
+                                    print("Para llegar a la zona wifi dirigirse primero al norte y luego hacia el occidente\ny el tiempo que tardaria en moto es:",tiempo_moto,"minutos y a pie:",tiempo_pie,"minutos")
+                                elif(lat_origen<lat_destino and lon_origen<lon_destino):
+                                    print("Para llegar a la zona wifi dirigirse primero al norte y luego hacia el oriente\ny el tiempo que tardaria en moto es:",tiempo_moto,"minutos y a pie:",tiempo_pie,"minutos")
+                                elif(lat_origen>lat_destino and lon_origen>lon_destino):
+                                    print("Para llegar a la zona wifi dirigirse primero al sur y luego hacia el occidente\ny el tiempo que tardaria en moto es:",tiempo_moto,"minutos y a pie:",tiempo_pie,"minutos")
+                            
+
+                            if(press_zona==1):
+                                lat_destino=zonas_wifi_ordenadas[0][0]
+                                lon_destino=zonas_wifi_ordenadas[0][1]
+                                distancia_destino=zonas_wifi_ordenadas[0][3]
+                                indicaciones_llegada(lat_destino, lon_destino)
+
+                            elif(press_zona==2):
+                                lat_destino=zonas_wifi_ordenadas[1][0]
+                                lon_destino=zonas_wifi_ordenadas[1][1]
+                                distancia_destino=zonas_wifi_ordenadas[0][3]
+
+                                indicaciones_llegada(lat_destino, lon_destino)
+                                
+
+                            else:
+                                print("Error zona wifi")
+
+                            salir=int(input("Presione 0 para salir: "))
+                            if(salir==0):
+                                quit()
+                                #realmente debe ir al menu ppal xd
+
 
                             return zonas_wifi_ordenadas
 
@@ -489,10 +541,7 @@ else:
 
             
             
-                            
-
-
-
+        
 
 
 
