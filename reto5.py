@@ -725,8 +725,6 @@ def option3_reto4():
 
 
 
-
-
 ## Actividad Reto de la semana: Elabora un programa que exporte información a ficheros externos. (Reto 5)
 
 information=None
