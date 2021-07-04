@@ -666,30 +666,6 @@ def option3_reto4():
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 # Init retos //
 
 login_reto1()
